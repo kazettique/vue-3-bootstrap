@@ -1,4 +1,4 @@
-# vue-3-bootstrap
+# Vue 3 Bootstrap
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -57,3 +57,29 @@ npm run test:e2e # or `npm run test:e2e:ci` for headless testing
 ```sh
 npm run lint
 ```
+
+## Notes
+
+### App Configurations
+
+The application instance exposes a .config object that allows us to configure a few app-level options, for example defining an app-level error handler that captures errors from all descendant components:
+
+```js
+app.config.errorHandler = (err) => {
+  /* handle error */
+}
+```
+
+## Limitations of `reactive()`
+
+1. It only works for object types (objects, arrays, and collection types such as `Map` and `Set`). It cannot hold primitive types such as `string`, `number` or `boolean`.
+2. Since Vue's reactivity tracking works over property access, we must always keep the same reference to the reactive object. This means we can't easily "replace" a reactive object because the reactivity connection to the first reference is lost:
+
+### Checklist
+
+- [ ] Comment out template in template using hotkey?
+- [ ] Auto close tag in template?
+- [ ] Import intellisense in script?
+- [ ] Eslint & prettier issue (eg. line break issue)
+- [ ] Adding eslint rules in `eslintrc.js` causing conflict between eslint & prettier.
+- [ ] 
