@@ -13,8 +13,8 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
 1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
 ## Customize configuration
@@ -67,19 +67,41 @@ The application instance exposes a .config object that allows us to configure a 
 ```js
 app.config.errorHandler = (err) => {
   /* handle error */
-}
+};
 ```
 
-## Limitations of `reactive()`
+### Limitations of `reactive()`
 
 1. It only works for object types (objects, arrays, and collection types such as `Map` and `Set`). It cannot hold primitive types such as `string`, `number` or `boolean`.
-2. Since Vue's reactivity tracking works over property access, we must always keep the same reference to the reactive object. This means we can't easily "replace" a reactive object because the reactivity connection to the first reference is lost:
+2. Since Vue's reactivity tracking works over property access, we must always keep the same reference to the reactive object. This means we can't easily "replace" a reactive object because the reactivity connection to the first reference is lost.
 
-### Checklist
+## 提問與整理
 
-- [ ] Comment out template in template using hotkey?
-- [ ] Auto close tag in template?
-- [ ] Import intellisense in script?
-- [ ] Eslint & prettier issue (eg. line break issue)
-- [ ] Adding eslint rules in `eslintrc.js` causing conflict between eslint & prettier.
-- [ ] 
+- [ ] `reactive` 與 `ref` API 的差別
+- [ ] 何謂「組合函數」（Composables）？
+- [ ] 何謂「可寫計算屬性」（Writable Computed）？
+- [ ] `v-bind:class`、`v-if`、用法同 Vue 2
+
+### 一些疑難雜症
+
+VSCode version:
+
+| Mac    | Win    |
+| ------ | ------ |
+| 1.72.1 | 1.60.X |
+
+#### Template 相關
+
+- [ ] ~~如何在 `<template>` 裡使用快捷鍵**註解**？~~
+- [ ] ~~如何在 `<template>` 裡，使用 HTML 標籤提示與自填閉合標籤？~~
+- [ ]
+
+#### Script 相關
+
+- [ ] ~~如何在 `<script>` 裡使用 intellisense？（例如：從 import 的地方推斷可解構的內容）~~
+- [ ]
+
+#### Eslint, Prettier & TypeScript 相關
+
+- [ ] 在 `eslintrc.js` 加入自訂 eslint 規則之後，造成 eslint 與 prettier 的 format 衝突
+- [ ]
