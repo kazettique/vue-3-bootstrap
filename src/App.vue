@@ -2,10 +2,12 @@
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "./components/HelloWorld.vue";
 import TestComp from "./components/TestComp.vue";
+import KeyPad from "./components/KeyPad.vue";
 </script>
 
 <template>
   <TestComp />
+  <KeyPad />
 
   <!--<header>
     <img

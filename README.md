@@ -88,7 +88,7 @@ VSCode version:
 
 | Mac    | Win    |
 | ------ | ------ |
-| 1.72.1 | 1.60.X |
+| 1.72.1 | 1.60.2 |
 
 #### Template 相關
 
@@ -104,4 +104,4 @@ VSCode version:
 #### Eslint, Prettier & TypeScript 相關
 
 - [ ] 在 `eslintrc.js` 加入自訂 eslint 規則之後，造成 eslint 與 prettier 的 format 衝突
-- [ ]
+- [ ] 建立專案的方式？（Vue CLI、Vue init、Vite）
