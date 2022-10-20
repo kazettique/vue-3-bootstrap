@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import { computed, reactive, ref, Ref } from "vue";
+// Ref: https://github.com/iamshaunjp/vue-with-typescript
+// import type TestProps from "@/types";
+import { computed, reactive, ref } from "vue";
 
-interface IProps {
+export interface IProps {
   title: string;
   initialValue?: number;
 }
 
 interface IEmits {
   (event: "click", value: string): void;
-}
-
-interface IRef {
-  year: number;
 }
 
 interface IReactive {
@@ -22,7 +20,7 @@ interface IReactive {
 // default props - 1
 const props = withDefaults(defineProps<IProps>(), {
   title: "Default Title",
-  intialValue: 0,
+  initialValue: 0,
 });
 
 // default props - 2
@@ -30,21 +28,28 @@ const props = withDefaults(defineProps<IProps>(), {
 
 const emit = defineEmits<IEmits>();
 
-const year: Ref<IRef> = ref(2022);
+const year = ref<number>(2022);
 
-const person: IReactive = reactive({ age: 20, gender: "female" });
+const person = reactive<IReactive>({ age: 20, gender: "female" });
 
 const displayYear = computed<string>(() => year.value + "年");
 
-function handleChange(event) {
+function handleInput(event: Event): void {
   const currentValue = (event.target as HTMLInputElement).value;
   console.log("currentValue: ", currentValue);
 }
 </script>
 
 <template>
-  <div>keypad componenet</div>
-  <input type="text" v-on:change="handleChange" />
+  <div class="container">
+    <div>keypad component</div>
+    <input type="text" v-on:input="handleInput" />
+    <div>This year: {{ displayYear }}</div>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+  border: 1px red solid;
+}
+</style>

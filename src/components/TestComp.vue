@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from "vue";
 
-const state = reactive({ count: 0 });
-const countRef = ref(5566);
+const state = reactive<{ count: number }>({ count: 0 });
+const countRef = ref<number>(5566);
 
 // update state
-function increment() {
+function increment(): void {
   state.count++;
 }
 
 // update ref
-function updateRef() {
+function updateRef(): void {
   countRef.value = countRef.value + 1;
 }
 
 // computed - 1: with computed caching
-const isOdd = computed(() => state.count % 2 === 1);
+const isOdd = computed<boolean>(() => state.count % 2 === 1);
 
 // computed - 2: without computed caching
-function isOdd2() {
+function isOdd2(): boolean {
   return state.count % 2 === 1;
 }
 </script>
