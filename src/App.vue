@@ -1,13 +1,20 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
-import TestComp from "./components/TestComp.vue";
-import KeyPad from "./components/KeyPad.vue";
+import CompositionComp from "./components/CompositionComp.vue";
+import OptionComp from "./components/OptionComp.vue";
+
+function getBMI(event: number) {
+  console.log("event", event);
+}
+
+const text: string = "A123     hello world";
 </script>
 
 <template>
-  <TestComp />
-  <KeyPad />
+  <!-- <TestComp /> -->
+  <!-- <KeyPad /> -->
+  <CompositionComp title="Composition Component" v-on:export="getBMI($event)" />
+  <OptionComp title="Option Component" v-on:export="getBMI($event)" />
+  <div>{{ text }}</div>
 
   <!--<header>
     <img

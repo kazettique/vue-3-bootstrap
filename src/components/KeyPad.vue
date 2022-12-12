@@ -42,14 +42,18 @@ function handleInput(event: Event): void {
 
 <template>
   <div class="container">
-    <div>keypad component</div>
+    <div class="text-green-600 border text-2xl">keypad component</div>
     <input type="text" v-on:input="handleInput" />
     <div>This year: {{ displayYear }}</div>
   </div>
 </template>
 
-<style scoped>
+<style lang="postcss" scoped>
 .container {
-  border: 1px red solid;
+  @apply border border-blue-500;
+}
+
+.test {
+  @apply bg-red-200 text-neutral-300 text-2xl text-xl;
 }
 </style>
